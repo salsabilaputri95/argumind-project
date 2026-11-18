@@ -1,0 +1,6 @@
+# Mark documentation & design preview files so they do not skew language stats
+argumind-platform/docs/** linguist-documentation=true
+research/*.md linguist-documentation=true
+
+# Ensure SQL migrations are included in language statistics
+*.sql linguist-detectable=true
