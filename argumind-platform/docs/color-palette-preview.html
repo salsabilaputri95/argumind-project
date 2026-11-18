@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Argumind — Preview Palet Warna & Background (DESIGN_SYSTEM.md)</title>
+  <style>
+    :root {
+      --bg-page: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-elevated: #F1F5F9;
+      --border-color: #CBD5E1;
+      --text-main: #0F172A;
+      --text-sub: #475569;
+    }
+
+    body.dark-preview {
+      --bg-page: #090D16;
+      --bg-surface: #111827;
+      --bg-elevated: #1F2937;
+      --border-color: #374151;
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      padding: 32px;
+      line-height: 1.5;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .theme-toggle {
+      background: #1E40AF;
+      color: #FFFFFF;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      background: #1E3A8A;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+
+    /* Live Background Comparison Banner */
+    .bg-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .bg-demo-box {
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid var(--border-color);
+    }
+
+    .bg-demo-inner {
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    /* Swatch Grid */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .swatch-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.06);
+    }
+
+    .color-box {
+      height: 96px;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .mode-pill {
+      font-size: 11px;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(15, 23, 42, 0.75);
+      color: #FFFFFF;
+    }
+
+    .swatch-info {
+      padding: 12px;
+    }
+
+    .token-name {
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-main);
+      word-break: break-all;
+    }
+
+    .hex-code {
+      display: inline-block;
+      margin-top: 4px;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--bg-elevated);
+      color: var(--text-main);
+    }
+
+    .usage-note {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    /* Node Preview */
+    .node-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .arg-node {
+      background: var(--bg-surface);
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.10);
+    }
+
+    .arg-node-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+    }
+
+    .arg-node-text {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Palet Warna & Background — Argumind Design System</h1>
+        <p class="subtitle">Sumber: <code>argumind-platform/docs/DESIGN_SYSTEM.md</code> (Light Mode & Dark Mode)</p>
+      </div>
+      <button class="theme-toggle" onclick="document.body.classList.toggle('dark-preview')">
+        Ganti Background Halaman (Light / Dark)
+      </button>
+    </header>
+
+    <!-- BAGIAN 1: SIMULASI LANGSUNG WARNA BACKGROUND -->
+    <section>
+      <h2>1. Simulasi Langsung Warna Background (Halaman, Kanvas Graf, & Kartu)</h2>
+      <p class="section-desc">Berikut perbandingan langsung tampilan background utama aplikasi dan kartu permukaan pada Mode Terang vs Mode Gelap:</p>
+      <div class="bg-demo-grid">
+        <!-- Light Mode Demo -->
+        <div class="bg-demo-box" style="background-color: #F8FAFC; color: #0F172A;">
+          <strong>MODE TERANG (LIGHT) — Background Utama & Kanvas Graf</strong>
+          <div style="font-family: monospace; font-size: 13px; margin-top: 4px; color: #475569;">
+            --color-bg-canvas: <strong>#F8FAFC</strong> (Slate 50)
+          </div>
+          <div class="bg-demo-inner" style="background-color: #FFFFFF; color: #0F172A;">
+            <strong>Surface / Kartu / Panel Teks Esai</strong><br/>
+            <span style="font-family: monospace; font-size: 12px; color: #475569;">--color-surface: <strong>#FFFFFF</strong> (Putih Bersih)</span>
+            <div class="bg-demo-inner" style="background-color: #F1F5F9; color: #0F172A; margin-top: 10px;">
+              <strong>Surface Elevated (Header Tabel / Modal / Popover)</strong><br/>
+              <span style="font-family: monospace; font-size: 12px; color: #475569;">--color-surface-elevated: <strong>#F1F5F9</strong> (Slate 100)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Mode Demo -->
+        <div class="bg-demo-box" style="background-color: #090D16; color: #F8FAFC;">
+          <strong>MODE GELAP (DARK) — Background Utama & Kanvas Graf</strong>
+          <div style="font-family: monospace; font-size: 13px; margin-top: 4px; color: #94A3B8;">
+            --color-bg-canvas: <strong>#090D16</strong> (Slate 950)
+          </div>
+          <div class="bg-demo-inner" style="background-color: #111827; color: #F8FAFC;">
+            <strong>Surface / Kartu / Panel Teks Esai</strong><br/>
+            <span style="font-family: monospace; font-size: 12px; color: #94A3B8;">--color-surface: <strong>#111827</strong> (Gray 900)</span>
+            <div class="bg-demo-inner" style="background-color: #1F2937; color: #F8FAFC; margin-top: 10px;">
+              <strong>Surface Elevated (Header Tabel / Modal / Popover)</strong><br/>
+              <span style="font-family: monospace; font-size: 12px; color: #94A3B8;">--color-surface-elevated: <strong>#1F2937</strong> (Gray 800)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAGIAN 2: KOTAK WARNA BACKGROUND, SURFACE, & BORDER -->
+    <section>
+      <h2>2. Warna Background, Surface, dan Border</h2>
+      <p class="section-desc">Digunakan untuk latar halaman, kanvas React Flow, panel bacaan teks, dan garis pemisah split-pane.</p>
+      <div class="swatch-grid">
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #F8FAFC;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-bg-canvas</div>
+            <div class="hex-code">#F8FAFC</div>
+            <div class="usage-note">Background utama halaman & kanvas graf (Mode Terang)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #090D16;"><span class="mode-pill">Dark</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-bg-canvas (Dark)</div>
+            <div class="hex-code">#090D16</div>
+            <div class="usage-note">Background utama halaman & kanvas graf (Mode Gelap)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #FFFFFF;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-surface</div>
+            <div class="hex-code">#FFFFFF</div>
+            <div class="usage-note">Latar kartu, panel teks esai, baris tabel, node graf</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #111827;"><span class="mode-pill">Dark</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-surface (Dark)</div>
+            <div class="hex-code">#111827</div>
+            <div class="usage-note">Latar kartu, panel teks esai, node graf (Mode Gelap)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #F1F5F9;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-surface-elevated</div>
+            <div class="hex-code">#F1F5F9</div>
+            <div class="usage-note">Header tabel, dropdown, popover inspektor (Mode Terang)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #1F2937;"><span class="mode-pill">Dark</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-surface-elevated (Dark)</div>
+            <div class="hex-code">#1F2937</div>
+            <div class="usage-note">Header tabel, dropdown, popover inspektor (Mode Gelap)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #CBD5E1;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-border</div>
+            <div class="hex-code">#CBD5E1</div>
+            <div class="usage-note">Garis split-pane 1px, border input & tabel (Mode Terang)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #374151;"><span class="mode-pill">Dark</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-border (Dark)</div>
+            <div class="hex-code">#374151</div>
+            <div class="usage-note">Garis split-pane 1px, border input & tabel (Mode Gelap)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAGIAN 3: WARNA UTAMA (PRIMARY, SECONDARY) & TEKS -->
+    <section>
+      <h2>3. Warna Brand (Primary, Secondary) & Tipografi Teks</h2>
+      <p class="section-desc">Warna tombol aksi utama, aksi sekunder, dan hierarki keterbacaan teks (WCAG AA &gt; 4.5:1).</p>
+      <div class="swatch-grid">
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #1E40AF;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-primary</div>
+            <div class="hex-code">#1E40AF</div>
+            <div class="usage-note">Tombol utama ("Analisis Argumen"), focus ring, node aktif</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #1E3A8A;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-primary-hover</div>
+            <div class="hex-code">#1E3A8A</div>
+            <div class="usage-note">State hover tombol utama pada Mode Terang</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #60A5FA;"><span class="mode-pill">Dark</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-primary (Dark)</div>
+            <div class="hex-code">#60A5FA</div>
+            <div class="usage-note">Tombol utama & aksen aktif pada Mode Gelap</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #0F766E;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-secondary</div>
+            <div class="hex-code">#0F766E</div>
+            <div class="usage-note">Tombol sekunder ("Bandingkan Versi", "Kontraargumen")</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #2DD4BF;"><span class="mode-pill">Dark</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-secondary (Dark)</div>
+            <div class="hex-code">#2DD4BF</div>
+            <div class="usage-note">Aksi sekunder pada Mode Gelap</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #0F172A;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-text-primary</div>
+            <div class="hex-code">#0F172A</div>
+            <div class="usage-note">Teks utama esai, judul halaman, isi node (Kontras 15.8:1)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #475569;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-text-secondary</div>
+            <div class="hex-code">#475569</div>
+            <div class="usage-note">Label metadata, breadcrumb, sub-judul (Kontras 7.2:1)</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #64748B;"><span class="mode-pill">Both</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-text-muted</div>
+            <div class="hex-code">#64748B</div>
+            <div class="usage-note">Teks disabled, placeholder input, dan seri skor AI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAGIAN 4: WARNA SEMANTIK (SUCCESS, WARNING, ERROR, INFO) -->
+    <section>
+      <h2>4. Warna Semantik Status, Relasi Edge, & Celah Logika</h2>
+      <p class="section-desc">Pasangan warna teks/ikon dan warna background lembut (badge/alert) untuk status analisis dan relasi Support/Attack.</p>
+      <div class="swatch-grid">
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #15803D;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-success</div>
+            <div class="hex-code">#15803D</div>
+            <div class="usage-note">Garis relasi Support (+), status COMPLETED, skor 4-5</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #DCFCE7;"><span class="mode-pill">Light BG</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-success-bg</div>
+            <div class="hex-code">#DCFCE7</div>
+            <div class="usage-note">Background badge ACCEPTED & alert sukses</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #B45309;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-warning</div>
+            <div class="hex-code">#B45309</div>
+            <div class="usage-note">Teks peringatan, severity Medium, konflik adjudikasi</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #FEF3C7;"><span class="mode-pill">Light BG</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-warning-bg</div>
+            <div class="hex-code">#FEF3C7</div>
+            <div class="usage-note">Background sorotan ImplicitPremise & konflik anotasi</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #B91C1C;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-error</div>
+            <div class="hex-code">#B91C1C</div>
+            <div class="usage-note">Garis relasi Attack (x), ReasoningGap High, error 422</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #FEE2E2;"><span class="mode-pill">Light BG</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-error-bg</div>
+            <div class="hex-code">#FEE2E2</div>
+            <div class="usage-note">Background badge celah logika (G-01) & input tidak valid</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #0369A1;"><span class="mode-pill">Light</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-info</div>
+            <div class="hex-code">#0369A1</div>
+            <div class="usage-note">Indikator progres SSE & informasi kalibrasi</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #E0F2FE;"><span class="mode-pill">Light BG</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--color-info-bg</div>
+            <div class="hex-code">#E0F2FE</div>
+            <div class="usage-note">Background sorotan span Claim di teks esai</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAGIAN 5: WARNA KOMPONEN GRAF ARGUMEN (5 TIPE NODE) -->
+    <section>
+      <h2>5. Warna Khusus 5 Tipe Node Graf Argumen (Beserta Preview Kartu Node)</h2>
+      <p class="section-desc">Setiap komponen argumen dibedakan menggunakan kombinasi warna border, pola garis (solid/dashed/dotted), dan kode badge.</p>
+      <div class="swatch-grid" style="margin-bottom: 24px;">
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #0284C7;"><span class="mode-pill">Claim [C]</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--node-claim-border</div>
+            <div class="hex-code">#0284C7</div>
+            <div class="usage-note">Border 2px solid untuk node Klaim Utama / Sub-Klaim</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #4F46E5;"><span class="mode-pill">Premise [P]</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--node-premise-border</div>
+            <div class="hex-code">#4F46E5</div>
+            <div class="usage-note">Border 2px solid untuk node Premis Eksplisit</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #D97706;"><span class="mode-pill">Implicit [IP]</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--node-implicit-border</div>
+            <div class="hex-code">#D97706</div>
+            <div class="usage-note">Border 2px dashed (putus-putus) untuk Premis Implisit</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #059669;"><span class="mode-pill">Evidence [E]</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--node-evidence-border</div>
+            <div class="hex-code">#059669</div>
+            <div class="usage-note">Border 2px solid untuk node Bukti / Data Statistik</div>
+          </div>
+        </div>
+        <div class="swatch-card">
+          <div class="color-box" style="background-color: #E11D48;"><span class="mode-pill">Counter [CA]</span></div>
+          <div class="swatch-info">
+            <div class="token-name">--node-counter-border</div>
+            <div class="hex-code">#E11D48</div>
+            <div class="usage-note">Border 2px dotted (titik-titik) untuk Kontraargumen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simulasi Kartu Node di Atas Kanvas -->
+      <div class="node-preview-grid">
+        <div class="arg-node" style="border: 2px solid #0284C7; border-left-width: 6px;">
+          <div class="arg-node-header" style="color: #0284C7;">
+            <span>[C] CLAIM • N-01</span>
+            <span>solid #0284C7</span>
+          </div>
+          <div class="arg-node-text">Pemerintah daerah wajib mengalihkan subsidi BBM ke transportasi umum.</div>
+        </div>
+
+        <div class="arg-node" style="border: 2px solid #4F46E5; border-left-width: 6px;">
+          <div class="arg-node-header" style="color: #4F46E5;">
+            <span>[P] EXPLICIT PREMISE • N-02</span>
+            <span>solid #4F46E5</span>
+          </div>
+          <div class="arg-node-text">Mayoritas responden survei di Jakarta mendukung penambahan armada bus kota.</div>
+        </div>
+
+        <div class="arg-node" style="border: 2px dashed #D97706; border-left-width: 6px;">
+          <div class="arg-node-header" style="color: #D97706;">
+            <span>[IP] IMPLICIT PREMISE • IP-01</span>
+            <span>dashed #D97706</span>
+          </div>
+          <div class="arg-node-text">Preferensi responden di Jakarta mewakili kebutuhan seluruh daerah di Indonesia.</div>
+        </div>
+
+        <div class="arg-node" style="border: 2px solid #059669; border-left-width: 6px;">
+          <div class="arg-node-header" style="color: #059669;">
+            <span>[E] EVIDENCE • N-03</span>
+            <span>solid #059669</span>
+          </div>
+          <div class="arg-node-text">Laporan BPS mencatat biaya komuter menyerap 28% pendapatan pekerja.</div>
+        </div>
+
+        <div class="arg-node" style="border: 2px dotted #E11D48; border-left-width: 6px;">
+          <div class="arg-node-header" style="color: #E11D48;">
+            <span>[CA] COUNTERARGUMENT • CA-01</span>
+            <span>dotted #E11D48</span>
+          </div>
+          <div class="arg-node-text">Pengalihan subsidi mendadak tanpa armada siap justru menaikkan biaya logistik.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
