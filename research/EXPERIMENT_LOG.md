@@ -66,6 +66,37 @@ Sumber kebenaran untuk: Jejak audit empiris seluruh percobaan yang berhasil maup
 - **Kesimpulan Sementara:**
   - «dugaan» Eksekusi perdana akan dimulai dari verifikasi pipeline pra-pemrosesan dan baseline `B1_EncoderOnly` pada skenario `E-01` begitu partisi `train` dan `dev` tersedia.
 
+### [LOG-20261118-01] — E-01 (Smoke Run Korpus Benih v1.0 / Fallback Heuristik Lokal)
+- **ID Run & Status:** `run_20261118_seed42` | Status: `COMPLETED` (Smoke Test Pra-Fine-Tuning Colab)
+- **Tanggal & Waktu (UTC+8):** `2026-11-18T14:38:08+08:00`
+- **Git Commit Hash:** `74dae63081d42e1bf6b871caead445047ab45f7b` (Working tree: `uncommitted Fase 1 changes`)
+- **Konfigurasi & Parameter:**
+  - `arch / mode`: `M1_ArgumindHybrid` (mode fallback heuristik lokal tanpa checkpoint GPU IndoBERT)
+  - `dataset_version & split`: `IndoArg-Analytical-v1` seed sample (`manifest sha256 documents.jsonl: 4dd851d9`) | `split: test` (`n_docs = 2`)
+- **Random Seed:** `42`
+- **Lingkungan Eksekusi (Environment):**
+  - `OS`: `Windows` (`D:\argumind`)
+  - `Python`: `Python 3.13.5` (`.venv`)
+- **Perintah Eksekusi (Command):**
+  `.venv\Scripts\python.exe -m research.runners.run_experiment --exp-id E-01 --arch M1_ArgumindHybrid --data-dir research/data/processed/v1.0 --split test --seed 42 --output-dir research/outputs/E-01/run_20261118_seed42`
+- **Hasil Mentah (Tanpa Pembulatan) & Lokasi File Output:**
+  - **File Output:**
+    - Config: `research/outputs/E-01/run_20261118_seed42/config_locked.json`
+    - Prediksi: `research/outputs/E-01/run_20261118_seed42/predictions.jsonl`
+    - Metrik Mentah: `research/outputs/E-01/run_20261118_seed42/metrics_raw.json`
+    - Log Proses: `research/outputs/E-01/run_20261118_seed42/run.log`
+  - **Angka Asli (`metrics_raw.json`):**
+    - `component_macro_f1_exact`: `0.5735735735735735`
+    - `component_macro_f1_iou50`: `0.5735735735735735`
+    - `relation_macro_f1`: `0.0`
+    - `cycle_rate`: `0.0`
+    - `n_docs`: `2`
+    - `latency_total_ms`: `1941.54`
+- **Anomali / Error yang Ditemukan:**
+  - `relation_macro_f1` bernilai `0.0` pada smoke test ini karena runner memakai ID lokal (`N-01`) sementara `edges.jsonl` pada korpus benih memakai ID berprefiks dokumen (`doc_0011_N-01`) serta model NLI belum di-fine-tune di GPU Colab.
+- **Kesimpulan Sementara:**
+  - «dugaan» Pipeline runner, verifikasi checksum `manifest.sha256`, pencatatan artefak keluaran, dan jaminan graf bebas siklus (`cycle_rate = 0.0`) berfungsi; evaluasi akurasi sesungguhnya wajib menunggu fine-tuning `IndoBERT` + `Cross-Encoder NLI` di Google Colab pada korpus penuh.
+
 ---
 
 ## 3. Pertanyaan Terbuka

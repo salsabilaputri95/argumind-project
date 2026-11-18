@@ -1,0 +1,14 @@
+{
+  "exp_id": "E-01",
+  "arch": "M1_ArgumindHybrid",
+  "split": "test",
+  "seed": 42,
+  "timestamp_utc": "2026-11-18T06:38:08.361378+00:00",
+  "manifest_sha256": {
+    "documents.jsonl": "4dd851d9c1428808410ceed65be0305ad861ad136053101ef07b9e7e49af9c0d",
+    "nodes.jsonl": "12cfdbc3afb8b9b4d866c7bb14a96abca6fcbc41b9d70b8cc03a119ff39bf0fe",
+    "edges.jsonl": "8e9bae98feef4bb7fe687301d76fa0962c333dde1ab8470c7e0b0925a7c61b56",
+    "gaps.jsonl": "39a8c45f34a24ddd186cf73d8e249ba6c1509f12b3c9d1fb434e155f8f0d3c91",
+    "rubric_scores.jsonl": "8eaf9e8707049472a9573f2b41526065061aefc79fcbf19444115b91cf45bfeb"
+  }
+}

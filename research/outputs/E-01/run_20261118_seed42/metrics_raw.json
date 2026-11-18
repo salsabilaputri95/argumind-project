@@ -1,0 +1,8 @@
+{
+  "component_macro_f1_exact": 0.5735735735735735,
+  "component_macro_f1_iou50": 0.5735735735735735,
+  "relation_macro_f1": 0.0,
+  "cycle_rate": 0.0,
+  "n_docs": 2,
+  "latency_total_ms": 1941.54
+}

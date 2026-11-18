@@ -1,0 +1,38 @@
+# Python virtual environments & caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+coverage/
+playwright-report/
+test-results/
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Research raw sensitive data & ethics archive (READ-ONLY / NEVER COMMIT)
+research/data/raw/*
+!research/data/raw/.gitkeep
+research/ethics_archive/
+research/outputs/*/checkpoints/
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.vscode/

@@ -1,0 +1,48 @@
+{"doc_id": "doc_0001", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0001_N-01"]}
+{"doc_id": "doc_0001", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0001_N-02"]}
+{"doc_id": "doc_0001", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0001_N-03"]}
+{"doc_id": "doc_0001", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0001_G-01"]}
+{"doc_id": "doc_0002", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0002_N-01"]}
+{"doc_id": "doc_0002", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0002_N-02"]}
+{"doc_id": "doc_0002", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0002_N-03"]}
+{"doc_id": "doc_0002", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0002_G-01"]}
+{"doc_id": "doc_0003", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0003_N-01"]}
+{"doc_id": "doc_0003", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0003_N-02"]}
+{"doc_id": "doc_0003", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0003_N-03"]}
+{"doc_id": "doc_0003", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0003_G-01"]}
+{"doc_id": "doc_0004", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0004_N-01"]}
+{"doc_id": "doc_0004", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0004_N-02"]}
+{"doc_id": "doc_0004", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0004_N-03"]}
+{"doc_id": "doc_0004", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0004_G-01"]}
+{"doc_id": "doc_0005", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0005_N-01"]}
+{"doc_id": "doc_0005", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0005_N-02"]}
+{"doc_id": "doc_0005", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0005_N-03"]}
+{"doc_id": "doc_0005", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0005_G-01"]}
+{"doc_id": "doc_0006", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0006_N-01"]}
+{"doc_id": "doc_0006", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0006_N-02"]}
+{"doc_id": "doc_0006", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0006_N-03"]}
+{"doc_id": "doc_0006", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0006_G-01"]}
+{"doc_id": "doc_0007", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0007_N-01"]}
+{"doc_id": "doc_0007", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0007_N-02"]}
+{"doc_id": "doc_0007", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0007_N-03"]}
+{"doc_id": "doc_0007", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0007_G-01"]}
+{"doc_id": "doc_0008", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0008_N-01"]}
+{"doc_id": "doc_0008", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0008_N-02"]}
+{"doc_id": "doc_0008", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0008_N-03"]}
+{"doc_id": "doc_0008", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0008_G-01"]}
+{"doc_id": "doc_0009", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0009_N-01"]}
+{"doc_id": "doc_0009", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0009_N-02"]}
+{"doc_id": "doc_0009", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0009_N-03"]}
+{"doc_id": "doc_0009", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0009_G-01"]}
+{"doc_id": "doc_0010", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0010_N-01"]}
+{"doc_id": "doc_0010", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0010_N-02"]}
+{"doc_id": "doc_0010", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": null, "grounded_refs": ["doc_0010_N-03"]}
+{"doc_id": "doc_0010", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": null, "grounded_refs": ["doc_0010_G-01"]}
+{"doc_id": "doc_0011", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": [4, 4, 4], "grounded_refs": ["doc_0011_N-01"]}
+{"doc_id": "doc_0011", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": [4, 3, 4], "grounded_refs": ["doc_0011_N-02"]}
+{"doc_id": "doc_0011", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": [4, 4, 4], "grounded_refs": ["doc_0011_N-03"]}
+{"doc_id": "doc_0011", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": [2, 2, 3], "grounded_refs": ["doc_0011_G-01"]}
+{"doc_id": "doc_0012", "dimension": "ClarityOfClaim", "gold_score": 4, "expert_rater_scores": [4, 4, 4], "grounded_refs": ["doc_0012_N-01"]}
+{"doc_id": "doc_0012", "dimension": "PremiseSupportAndCoherence", "gold_score": 4, "expert_rater_scores": [4, 3, 4], "grounded_refs": ["doc_0012_N-02"]}
+{"doc_id": "doc_0012", "dimension": "EvidenceAdequacy", "gold_score": 4, "expert_rater_scores": [4, 4, 4], "grounded_refs": ["doc_0012_N-03"]}
+{"doc_id": "doc_0012", "dimension": "CounterargumentAndLimitationAwareness", "gold_score": 2, "expert_rater_scores": [2, 2, 3], "grounded_refs": ["doc_0012_G-01"]}

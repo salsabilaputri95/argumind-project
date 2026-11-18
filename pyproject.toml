@@ -1,0 +1,82 @@
+[project]
+name = "argumind-workspace"
+version = "0.1.0"
+description = "Argumind Platform & Research Workspace (Argument Mining, Implicit Premise Detection, Explainable Scoring)"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.6.0",
+    "sqlalchemy[asyncio]>=2.0.35",
+    "aiosqlite>=0.20.0",
+    "alembic>=1.14.0",
+    "httpx>=0.27.2",
+    "networkx>=3.4.0",
+    "numpy>=2.1.0",
+    "scipy>=1.14.0",
+    "scikit-learn>=1.5.2",
+    "python-docx>=1.1.2",
+    "pymupdf>=1.24.0",
+    "pyjwt[crypto]>=2.9.0",
+    "cryptography>=43.0.0",
+    "python-multipart>=0.0.17",
+    "structlog>=24.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.7.0",
+    "mypy>=1.13.0",
+    "hypothesis>=6.115.0",
+]
+ml = [
+    "torch>=2.5.0",
+    "transformers>=4.46.0",
+    "datasets>=3.1.0",
+    "accelerate>=1.1.0",
+    "bert-score>=0.3.13",
+    "krippendorff>=0.6.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "ASYNC"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**/*.py" = ["S101", "S105", "S106"]
+"argumind-platform/apps/api/src/**/*.py" = ["B008"]
+"argumind-platform/apps/api/src/argumind_api/store.py" = ["S106"]
+"research/runners/**/*.py" = ["S311", "S603"]
+"*.ipynb" = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+plugins = ["pydantic.mypy", "sqlalchemy.ext.mypy.plugin"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = [
+    ".",
+    "argumind-platform/packages/shared-schemas/src",
+    "argumind-platform/packages/evaluation-metrics/src",
+    "argumind-platform/apps/nlp-worker/src",
+    "argumind-platform/apps/api/src",
+]
+testpaths = [
+    "argumind-platform/packages/evaluation-metrics/tests",
+    "argumind-platform/apps/nlp-worker/tests",
+    "argumind-platform/apps/api/tests",
+    "research/tests",
+]
