@@ -1,10 +1,50 @@
-# Argumind Platform
+<div align="center">
 
-Platform web **Argumentative Writing Analytics & Critical Thinking Assessment** untuk dokumen analitis berbahasa Indonesia. Argumind membantu penulis, editor, penilai (*reviewer*), dan tim penjaminan mutu mengevaluasi struktur logika tulisan melalui ekstraksi komponen argumen, visualisasi graf berarah bebas siklus (*Directed Acyclic Graph* / DAG), deteksi asumsi tersembunyi serta celah penalaran, hingga penilaian rubrik empat dimensi yang tertaut langsung ke kutipan sumber.
+<h1>ARGUMIND</h1>
 
----
+<h3>Explainable Argumentative Writing Analytics, Directed Acyclic Graph (DAG) Reasoning &amp; Critical Thinking Assessment Platform</h3>
 
-## Ringkasan Eksekutif
+<p>Engineered for Indonesian Analytical Texts with Pre-Inference PII Redaction (UU No. 27 Tahun 2022 / UU PDP) &amp; Graph-Grounded Rubric Evaluation</p>
+
+<p>
+  <img src="https://img.shields.io/badge/VERSION-0.1.0-000000?style=for-the-badge&amp;labelColor=333333" alt="Version 0.1.0" />
+  <img src="https://img.shields.io/badge/UU_PDP-NO._27_TAHUN_2022-06b6d4?style=for-the-badge&amp;labelColor=4b5563" alt="UU PDP Compliance" />
+  <img src="https://img.shields.io/badge/TEST_COVERAGE-92.0%25_(17%2F17_PASS)-10b981?style=for-the-badge&amp;labelColor=4b5563" alt="Test Coverage 92.0%" />
+  <img src="https://img.shields.io/badge/SUPPORT_DAG_CYCLE-0.0%25_(CHU--LIU%2FEDMONDS)-10b981?style=for-the-badge&amp;labelColor=4b5563" alt="Support DAG Cycle 0.0%" />
+  <br />
+  <img src="https://img.shields.io/badge/PII_EGRESS-0.0%25_(PRE--REDACTED)-2563eb?style=for-the-badge&amp;labelColor=4b5563" alt="PII Egress 0.0%" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.12%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.12+" />
+  <img src="https://img.shields.io/badge/FastAPI-0.115%2B-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI 0.115+" />
+  <img src="https://img.shields.io/badge/PyTorch-2.5%2B_(IndoBERT_%2B_NLI)-EE4C2C?style=flat-square&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch 2.5+" />
+  <img src="https://img.shields.io/badge/Next.js-15.1_(App_Router)-111827?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js 15.1" />
+  <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript 5.7" />
+  <br />
+  <img src="https://img.shields.io/badge/PostgreSQL_16_%2B_Redis_7.4-Data_Layer-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL 16 + Redis 7.4" />
+</p>
+
+<hr />
+
+<p>
+  <a href="#1-ringkasan-eksekutif">Ringkasan Eksekutif</a> •
+  <a href="#2-kapabilitas-produk">Kapabilitas Produk</a> •
+  <a href="#3-arsitektur-dan-tech-stack">Arsitektur Sistem</a> •
+  <a href="#4-struktur-monorepo">Struktur Monorepo</a> •
+  <a href="#5-instalasi-dan-quick-start">Instalasi &amp; Quick Start</a> •
+  <a href="#6-dokumentasi-api">Dokumentasi API</a> •
+  <a href="#7-pengujian-dan-kualitas-kode">Pengujian &amp; QA</a> •
+  <a href="#8-keamanan-dan-privasi">Keamanan &amp; RBAC</a> •
+  <a href="#9-alur-kontribusi-git">Alur Git</a> •
+  <a href="#10-indeks-dokumentasi">Indeks Dokumentasi</a>
+</p>
+
+<hr />
+
+</div>
+
+## 1. Ringkasan Eksekutif
 
 Peninjauan manual terhadap draf esai analitis, laporan kebijakan, maupun kajian bisnis membutuhkan waktu 15–30 menit per dokumen dan rentan terhadap inkonsistensi antar-penilai. Di sisi lain, umpan balik AI generik yang hanya berupa ringkasan teks bebas sulit diaudit karena tidak menautkan skor ke kalimat sumbernya.
 
@@ -15,9 +55,9 @@ Peninjauan manual terhadap draf esai analitis, laporan kebijakan, maupun kajian 
 
 ---
 
-## Kapabilitas Produk (`F-01` – `F-07`)
+## 2. Kapabilitas Produk
 
-Status implementasi mengacu langsung pada catatan progres di [`docs/PROGRESS.md`](docs/PROGRESS.md).
+Cakupan fitur (`F-01` – `F-07`) dan status implementasi mengacu langsung pada pelacak progres di [`docs/PROGRESS.md`](docs/PROGRESS.md).
 
 | ID | Fitur | Deskripsi Fungsional | Status Saat Ini |
 |---|---|---|---|
@@ -31,7 +71,7 @@ Status implementasi mengacu langsung pada catatan progres di [`docs/PROGRESS.md`
 
 ---
 
-## Arsitektur Sistem & Tech Stack
+## 3. Arsitektur dan Tech Stack
 
 ### Topologi Layanan
 
@@ -65,7 +105,7 @@ flowchart TD
 
 ---
 
-## Struktur Direktori Monorepo
+## 4. Struktur Monorepo
 
 ```text
 argumind-platform/
@@ -99,7 +139,7 @@ argumind-platform/
 
 ---
 
-## Memulai Secara Lokal (*Local Setup & Quick Start*)
+## 5. Instalasi dan Quick Start
 
 ### Prasyarat Lingkungan
 
@@ -157,7 +197,9 @@ Aplikasi web dapat diakses melalui `http://localhost:3000`.
 
 ---
 
-## Referensi Endpoint Utama API (`/api/v1`)
+## 6. Dokumentasi API
+
+Ringkasan kontrak endpoint `/api/v1` yang diimplementasikan oleh Core API (`apps/api`).
 
 | Kelompok | Method & Path | Fungsi Utama |
 |---|---|---|
@@ -177,7 +219,7 @@ Aplikasi web dapat diakses melalui `http://localhost:3000`.
 
 ---
 
-## Pengujian, Kualitas Kode & Target Cakupan
+## 7. Pengujian dan Kualitas Kode
 
 Seluruh aturan verifikasi mengikuti [`docs/TESTING.md`](docs/TESTING.md) dan [`docs/CODE_STYLE.md`](docs/CODE_STYLE.md).
 
@@ -187,7 +229,7 @@ Seluruh aturan verifikasi mengikuti [`docs/TESTING.md`](docs/TESTING.md) dan [`d
 |---|---|---|
 | **Lint Python** | `ruff check argumind-platform && ruff format --check argumind-platform` | Gaya kode & keamanan statis (`E`, `F`, `I`, `B`, `UP`, `S`, `ASYNC`) |
 | **Typecheck Python** | `mypy argumind-platform/apps argumind-platform/packages` | Pengecekan tipe ketat (`strict = true`, Pydantic & SQLAlchemy plugin) |
-| **Test & Coverage Backend/NLP/Packages** | `pytest -v --cov=argumind_schemas --cov=argumind_metrics --cov=argumind_nlp --cov=argumind_api --cov-report=term-missing` | Seluruh unit test & integrasi API/RBAC |
+| **Test & Coverage Backend/NLP/Packages** | `pytest -v --cov=argumind_schemas --cov=argumind_metrics --cov=argumind_nlp --cov=argumind_api --cov-report=term-missing` | Seluruh unit test & integrasi API/RBAC (`17/17 passed`, `92%` coverage total) |
 | **Lint & Typecheck Web** | `pnpm --filter web lint && pnpm --filter web typecheck` | ESLint 9 & `tsc --noEmit` |
 | **Build Produksi Web** | `pnpm --filter web build` | Validasi bundle produksi Next.js |
 
@@ -202,7 +244,7 @@ Seluruh aturan verifikasi mengikuti [`docs/TESTING.md`](docs/TESTING.md) dan [`d
 
 ---
 
-## Keamanan, Privasi & Tata Kelola Akses
+## 8. Keamanan dan Privasi
 
 - **Autentikasi & Perlindungan Sesi**: Token akses JWT bertanda tangan asimetris **`RS256`** (`TTL = 15 menit`) disimpan eksklusif dalam cookie `HttpOnly` (bukan `localStorage`) disertai proteksi header CSRF untuk permintaan mutasi, kata sandi di-hash menggunakan `scrypt` + *random 16-byte salt* (dengan target migrasi `Argon2id` tercantum pada spesifikasi), serta verifikasi **`TOTP` (RFC 6238)**.
 - **Kontrol Akses Berbasis Peran & Scope Server (`ROLES_PERMISSIONS.md`)**:
@@ -215,7 +257,7 @@ Seluruh aturan verifikasi mengikuti [`docs/TESTING.md`](docs/TESTING.md) dan [`d
 
 ---
 
-## Standar Kontribusi & Alur Git
+## 9. Alur Kontribusi Git
 
 Aturan kontribusi pengembang dan agen otomasi diatur pada [`docs/GIT_WORKFLOW.md`](docs/GIT_WORKFLOW.md) dan [`AGENTS.md`](AGENTS.md):
 - **Branching**: Dilarang melakukan push langsung ke `main`. Gunakan branch terpisah berpola `<feat|fix|docs|chore>/<id>-<slug>` (atau `ai/<tipe>/<id>-<slug>` untuk perubahan berbantuan AI).
@@ -224,7 +266,7 @@ Aturan kontribusi pengembang dan agen otomasi diatur pada [`docs/GIT_WORKFLOW.md
 
 ---
 
-## Indeks Dokumentasi Produk & Teknis
+## 10. Indeks Dokumentasi
 
 | Dokumen | Fokus Bahasan |
 |---|---|
