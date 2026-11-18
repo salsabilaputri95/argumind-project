@@ -1,6 +1,10 @@
 # Mark documentation & design preview files so they do not skew language stats
-argumind-platform/docs/** linguist-documentation=true
-research/*.md linguist-documentation=true
+*.html linguist-documentation=true
+*.md linguist-documentation=true
 
-# Ensure SQL migrations are included in language statistics
+# Ensure source languages are explicitly detectable by GitHub Linguist
+*.py linguist-detectable=true
+*.ts linguist-detectable=true
+*.tsx linguist-detectable=true
 *.sql linguist-detectable=true
+*.css linguist-detectable=true
