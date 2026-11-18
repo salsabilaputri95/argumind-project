@@ -4,15 +4,15 @@
 
 <h3>Explainable Argumentative Writing Analytics, Directed Acyclic Graph (DAG) Reasoning &amp; Critical Thinking Assessment Platform</h3>
 
-<p>Engineered for Indonesian Analytical Texts with Pre-Inference PII Redaction (UU No. 27 Tahun 2022 / UU PDP) &amp; Graph-Grounded Rubric Evaluation</p>
+<p>Engineered with Hybrid IndoBERT + Cross-Encoder NLI, Chu-Liu/Edmonds Arborescence Decoding &amp; Graph-Grounded Rubric Evaluation</p>
 
 <p>
   <img src="https://img.shields.io/badge/VERSION-0.1.0-000000?style=for-the-badge&amp;labelColor=333333" alt="Version 0.1.0" />
-  <img src="https://img.shields.io/badge/UU_PDP-NO._27_TAHUN_2022-06b6d4?style=for-the-badge&amp;labelColor=4b5563" alt="UU PDP Compliance" />
-  <img src="https://img.shields.io/badge/TEST_COVERAGE-92.0%25_(17%2F17_PASS)-10b981?style=for-the-badge&amp;labelColor=4b5563" alt="Test Coverage 92.0%" />
+  <img src="https://img.shields.io/badge/PIPELINE-INDOBERT_BIO_%2B_NLI_DAG-06b6d4?style=for-the-badge&amp;labelColor=4b5563" alt="Hybrid IndoBERT BIO + NLI DAG" />
   <img src="https://img.shields.io/badge/SUPPORT_DAG_CYCLE-0.0%25_(CHU--LIU%2FEDMONDS)-10b981?style=for-the-badge&amp;labelColor=4b5563" alt="Support DAG Cycle 0.0%" />
+  <img src="https://img.shields.io/badge/RUBRIC_SCORING-4D_GRAPH--GROUNDED-2563eb?style=for-the-badge&amp;labelColor=4b5563" alt="4D Graph-Grounded Scoring" />
   <br />
-  <img src="https://img.shields.io/badge/PII_EGRESS-0.0%25_(PRE--REDACTED)-2563eb?style=for-the-badge&amp;labelColor=4b5563" alt="PII Egress 0.0%" />
+  <img src="https://img.shields.io/badge/TEST_COVERAGE-92.0%25_(17%2F17_PASS)-10b981?style=for-the-badge&amp;labelColor=4b5563" alt="Test Coverage 92.0%" />
 </p>
 
 <p>

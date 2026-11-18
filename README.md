@@ -1,6 +1,50 @@
-# Argumind
+<div align="center">
 
-Ekosistem terpadu **Explainable Argument Mining, Implicit Premise Detection, and Critical Reasoning Assessment** untuk teks analitis berbahasa Indonesia.
+<h1>ARGUMIND</h1>
+
+<h3>Explainable Argument Mining, Implicit Premise Detection &amp; Critical Reasoning Assessment Ecosystem</h3>
+
+<p>Unified Platform &amp; Empirical Research Monorepo for Indonesian Analytical Texts — Hybrid IndoBERT + Cross-Encoder NLI, Chu-Liu/Edmonds DAG Decoding &amp; Graph-Grounded Rubric Evaluation</p>
+
+<p>
+  <img src="https://img.shields.io/badge/VERSION-0.1.0-000000?style=for-the-badge&amp;labelColor=333333" alt="Version 0.1.0" />
+  <img src="https://img.shields.io/badge/PIPELINE-INDOBERT_BIO_%2B_NLI_DAG-06b6d4?style=for-the-badge&amp;labelColor=4b5563" alt="Hybrid IndoBERT BIO + NLI DAG" />
+  <img src="https://img.shields.io/badge/SUPPORT_DAG_CYCLE-0.0%25_(CHU--LIU%2FEDMONDS)-10b981?style=for-the-badge&amp;labelColor=4b5563" alt="Support DAG Cycle 0.0%" />
+  <img src="https://img.shields.io/badge/TEST_COVERAGE-92.0%25_(17%2F17_PASS)-10b981?style=for-the-badge&amp;labelColor=4b5563" alt="Test Coverage 92.0%" />
+  <br />
+  <img src="https://img.shields.io/badge/EXPERIMENTS-E--01..E--03b_(RUNNERS_READY)-2563eb?style=for-the-badge&amp;labelColor=4b5563" alt="Experiments E-01 to E-03b" />
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.12%2B-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.12+" />
+  <img src="https://img.shields.io/badge/FastAPI-0.115%2B-009688?style=flat-square&amp;logo=fastapi&amp;logoColor=white" alt="FastAPI 0.115+" />
+  <img src="https://img.shields.io/badge/PyTorch-2.5%2B_(IndoBERT_%2B_NLI)-EE4C2C?style=flat-square&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch 2.5+" />
+  <img src="https://img.shields.io/badge/Next.js-15.1_(App_Router)-111827?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js 15.1" />
+  <img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white" alt="TypeScript 5.7" />
+  <br />
+  <img src="https://img.shields.io/badge/PostgreSQL_16_%2B_Redis_7.4-Data_Layer-4169E1?style=flat-square&amp;logo=postgresql&amp;logoColor=white" alt="PostgreSQL 16 + Redis 7.4" />
+  <img src="https://img.shields.io/badge/Google_Colab-T4_GPU_Training-F9AB00?style=flat-square&amp;logo=googlecolab&amp;logoColor=white" alt="Google Colab Training" />
+</p>
+
+<hr />
+
+<p>
+  <a href="#1-gambaran-umum-ekosistem">Gambaran Umum</a> •
+  <a href="#2-arsitektur-ekosistem-dan-alur-terpadu">Arsitektur Terpadu</a> •
+  <a href="#3-struktur-direktori-repositori">Struktur Repositori</a> •
+  <a href="#4-argumind-platform">Argumind Platform</a> •
+  <a href="#5-argumind-research-dan-pelatihan-model">Argumind Research</a> •
+  <a href="#6-panduan-menjalankan-dan-pelatihan-colab">Quick Start &amp; Colab</a> •
+  <a href="#7-peta-dokumentasi-lengkap">Indeks Dokumentasi</a>
+</p>
+
+<hr />
+
+</div>
+
+## 1. Gambaran Umum Ekosistem
+
+**Argumind** adalah ekosistem terpadu untuk pemetaan graf struktur argumen, deteksi asumsi tersembunyi (*implicit premise*) serta celah logika, dan penilaian kualitas penalaran kritis terjelaskan pada teks analitis berbahasa Indonesia.
 
 Repositori ini mengelola dua komponen yang saling terhubung dalam satu ruang kerja:
 1. **[Argumind Platform (`argumind-platform/`)](argumind-platform/README.md)** — Monorepo aplikasi web produksi (*Next.js 15 + FastAPI + NLP Worker + PostgreSQL 16 + Redis 7.4*) untuk analisis struktur argumen secara visual (*Dual-Pane Workspace*), penilaian rubrik terjelaskan, dan ruang kerja anotasi *double-blind*.
@@ -9,7 +53,7 @@ Repositori ini mengelola dua komponen yang saling terhubung dalam satu ruang ker
 
 ---
 
-## Arsitektur Ekosistem & Alur Terpadu
+## 2. Arsitektur Ekosistem dan Alur Terpadu
 
 ```mermaid
 flowchart LR
@@ -40,7 +84,7 @@ flowchart LR
 
 ---
 
-## Struktur Direktori Repositori (`d:\argumind`)
+## 3. Struktur Direktori Repositori
 
 ```text
 argumind/
@@ -74,7 +118,7 @@ argumind/
     ├── EXPERIMENT_PLAN.md             # Matriks skenario E-01 s.d. E-03b, seed, & kriteria sukses
     ├── EXPERIMENT_LOG.md              # Buku log eksekusi eksperimen append-only
     ├── DATASET.md                     # Datasheet korpus IndoArg-Analytical-v1 & aturan imutabilitas
-    ├── ETHICS.md                      # Protokol etik UU PDP, informed consent, & redaksi PII
+    ├── ETHICS.md                      # Protokol etik penelitian, informed consent, & anonimisasi PII
     ├── JOURNAL_TARGET.md              # Target jurnal gratis ($0 APC): TACL, IP&M, IJAIED
     ├── REPRODUCIBILITY.md             # Kontrol seed, lingkungan deterministik, & checksum manifest
     ├── AI_USAGE.md                    # Kebijakan penggunaan AI & templat deklarasi penerbit
@@ -92,9 +136,9 @@ argumind/
 
 ---
 
-## Bagian I — Argumind Platform (`argumind-platform/`)
+## 4. Argumind Platform
 
-**Argumind Platform** dirancang untuk menanggulangi lambatnya peninjauan argumen manual serta masalah ketidakjelasan (*unfaithful explanation*) pada *chatbot* AI umum. Panduan teknis terpisah khusus tim pengembang produk tersedia di [`argumind-platform/README.md`](argumind-platform/README.md).
+**Argumind Platform** ([`argumind-platform/`](argumind-platform/README.md)) dirancang untuk menanggulangi lambatnya peninjauan argumen manual serta masalah ketidakjelasan (*unfaithful explanation*) pada *chatbot* AI umum. Panduan teknis terpisah khusus tim pengembang produk tersedia di [`argumind-platform/README.md`](argumind-platform/README.md).
 
 ### Kemampuan Inti Sistem (`F-01` – `F-07`)
 
@@ -113,9 +157,9 @@ argumind/
 
 ---
 
-## Bagian II — Argumind Research & Pelatihan Model (`research/`)
+## 5. Argumind Research dan Pelatihan Model
 
-### 1. Rumusan Masalah & Hipotesis Utama
+### A. Rumusan Masalah & Hipotesis Utama
 
 | ID | Fokus Pertanyaan Penelitian (`RQ`) | Ringkasan Hipotesis (`H`) & Ambang Target |
 |---|---|---|
@@ -123,7 +167,7 @@ argumind/
 | **`RQ2` / `H2`** | Rekonstruksi premis implisit (*enthymeme*) dan klasifikasi 6 kelas `ReasoningGap`. | Pengondisian sub-graf NLI (`M2_GraphNLIConditioned`) mencapai `BERTScore-F1` $\ge 0.78$ dan proporsi validitas logis pakar $\ge 75\%$ (naik $\ge +15$ poin persentase vs *text-only* / *CoT prompting*). |
 | **`RQ3` / `H3a`, `H3b`** | Keselarasan skor rubrik 4 dimensi terhadap pakar, kesetiaan penjelasan, dan bias panjang teks. | `QWK` $\ge 0.70$, Spearman $\rho \ge 0.70$ ($p < 0.01$); konsistensi ablasi kontrafaktual `FaithfulnessRate` $\ge 0.85$; korelasi parsial panjang teks $|\rho_{YL \cdot H}| \le 0.20$. |
 
-### 2. Arsitektur Pipeline Neuro-Simbolik 3 Tahap & Skrip Pelatihan
+### B. Arsitektur Pipeline Neuro-Simbolik 3 Tahap & Skrip Pelatihan
 
 1. **Tahap 1 — Pelabelan Sekuens `BIO` (`F-01`) — [`research/runners/train_indobert_bio.py`](research/runners/train_indobert_bio.py)**:
    - Mem-fine-tune model encoder Bahasa Indonesia (default: `indobenchmark/indobert-base-p2`, mendukung opsi `indobert-large-p2`) pada tag `BIO` untuk `Claim`, `ExplicitPremise`, dan `Evidence` menggunakan jendela geser (`max_length = 512`, `stride = 128`, optimizer `AdamW`, `lr = 2e-5`, *linear warmup*, *early stopping* `patience = 3`).
@@ -132,7 +176,7 @@ argumind/
 3. **Tahap 3 — Penalaran Terikat Graf (`F-03`–`F-05`)**:
    - Menautkan setiap rekonstruksi `ImplicitPremise`, klasifikasi `ReasoningGap`, dan skor rubrik `1..5` ke referensi simpul valid (`grounded_refs`) yang diaudit skema `Pydantic v2`.
 
-### 3. Dataset (`IndoArg-Analytical-v1`) & Matriks Eksperimen (`E-01` – `E-03b`)
+### C. Dataset (`IndoArg-Analytical-v1`) & Matriks Eksperimen (`E-01` – `E-03b`)
 
 - **Spesifikasi Target Korpus (`research/DATASET.md`)**: $N = 400$ dokumen analitis Bahasa Indonesia (`200` esai akademik + `200` kajian kebijakan/bisnis) dengan partisi berstrata penulis & topik `280 train / 60 dev / 60 test`.
 - **Korpus Benih (*Seed Corpus*) Tersedia Sekarang (`research/data/processed/v1.0/`)**: Telah disiapkan 12 dokumen analitis sintetis terstruktur (36 node, 24 edge, 12 gap/premis implisit, 48 skor rubrik) yang dipartisi menjadi `train`, `dev`, dan `test` beserta file integritas `manifest.sha256` untuk uji coba pelatihan & verifikasi pipeline sebelum korpus penuh dibekukan. Seluruh berkas pada `research/data/raw/` berstatus **immutabel (read-only)**.
@@ -143,7 +187,7 @@ argumind/
 | **`E-02a` & `E-02b`** | Evaluasi `RQ2` pada **Mode Oracle** (graf gold) vs **Mode End-to-End** (graf prediksi `E-01`) | `implicit_bertscore_f1`, `expert_validity_rate`, `gap_macro_f1`, $\Delta_{\text{drop}}$ |
 | **`E-03a` & `E-03b`** | Keselarasan rubrik `RQ3` vs 3 pakar *blind* + intervensi penghapusan node bukti (*counterfactual ablation*) | `QWK`, Spearman $\rho$, MAE, `faithfulness_rate`, `partial_corr_length` ($\rho_{YL \cdot H}$) |
 
-### 4. Target Publikasi Jurnal ($0 APC / Gratis)
+### D. Target Publikasi Jurnal ($0 APC / Gratis)
 
 Mengacu pada analisis di [`research/JOURNAL_TARGET.md`](research/JOURNAL_TARGET.md) (diverifikasi `2026-11-18`), seluruh target memprioritaskan bebas biaya publikasi (`$0 APC`):
 1. **Target Utama (`J-01`)**: *Transactions of the Association for Computational Linguistics (`TACL`)* — MIT Press / ACL (*Diamond Open Access*, batas ketat `7–10` halaman, *double-blind*).
@@ -154,9 +198,9 @@ Daftar pustaka pada [`research/LITERATURE_REVIEW.md`](research/LITERATURE_REVIEW
 
 ---
 
-## Panduan Menjalankan, Melatih di Colab, & Status Verifikasi Terkini
+## 6. Panduan Menjalankan dan Pelatihan Colab
 
-### 1. Setup Lingkungan Python Lokal (`.venv`)
+### A. Setup Lingkungan Python Lokal (`.venv`)
 
 ```powershell
 # Di root repositori (d:\argumind)
@@ -166,7 +210,7 @@ uv pip install --python .venv --link-mode=copy -e ".[dev]"
 
 *(Opsional jika ingin melatih/menguji PyTorch & Transformers secara lokal pada mesin ber-GPU: ganti extra menjadi `-e ".[dev,ml]"`).*
 
-### 2. Hasil Verifikasi Aktual yang Sudah Dijalankan
+### B. Hasil Verifikasi Aktual yang Sudah Dijalankan
 
 | Pemeriksaan | Perintah Aktual | Hasil Nyata Teramati |
 |---|---|---|
@@ -178,7 +222,7 @@ uv pip install --python .venv --link-mode=copy -e ".[dev]"
 > - Kode sumber frontend [`argumind-platform/apps/web/`](argumind-platform/apps/web/) telah selesai disusun, namun instalasi `pnpm install` di drive lokal `D:\` menemui kendala pembuatan *symlink* sistem berkas Windows (`os error 1`); gunakan `npm install --no-bin-links` di dalam `argumind-platform/apps/web/` atau jalankan pada partisi NTFS standar yang mengizinkan symlink sebelum menjalankan `typecheck` dan `build` web.
 > - Nilai akurasi model `IndoBERT` & `Cross-Encoder NLI` sesungguhnya belum dilaporkan karena menunggu eksekusi *fine-tuning* GPU serta pengumpulan korpus penuh `IndoArg-Analytical-v1`.
 
-### 3. Cara Menjalankan Pelatihan Model di Google Colab GPU
+### C. Cara Menjalankan Pelatihan Model di Google Colab GPU
 
 Notebook siap pakai telah tersedia di [`research/notebooks/Argumind_Colab_Training.ipynb`](research/notebooks/Argumind_Colab_Training.ipynb) dan dikonfigurasi untuk repositori `https://github.com/salsabilaputri95/argumind-project.git`:
 
@@ -194,7 +238,7 @@ Notebook siap pakai telah tersedia di [`research/notebooks/Argumind_Colab_Traini
 
 ---
 
-## Peta Dokumentasi Lengkap
+## 7. Peta Dokumentasi Lengkap
 
 ### A. Dokumentasi Platform Produk (`argumind-platform/`)
 
@@ -225,7 +269,7 @@ Notebook siap pakai telah tersedia di [`research/notebooks/Argumind_Colab_Traini
 | [`research/EXPERIMENT_PLAN.md`](research/EXPERIMENT_PLAN.md) | Skenario eksperimen `E-01`–`E-03b`, baseline `B1`–`B5`, & protokol multi-seed |
 | [`research/EXPERIMENT_LOG.md`](research/EXPERIMENT_LOG.md) | Catatan eksekusi eksperimen *append-only* tanpa pembulatan angka |
 | [`research/DATASET.md`](research/DATASET.md) | Datasheet korpus `IndoArg-Analytical-v1`, kamus field, & pedoman anotasi |
-| [`research/ETHICS.md`](research/ETHICS.md) | Tata kelola privasi, kepatuhan UU PDP, persetujuan partisipan, & redaksi PII |
+| [`research/ETHICS.md`](research/ETHICS.md) | Protokol etik penelitian, persetujuan partisipan (*informed consent*), & anonimisasi PII |
 | [`research/JOURNAL_TARGET.md`](research/JOURNAL_TARGET.md) | Profil jurnal target `$0 APC` (`TACL`, `IP&M`, `IJAIED`) & checklist submit |
 | [`research/REPRODUCIBILITY.md`](research/REPRODUCIBILITY.md) | Kontrol keacakan, lingkungan eksekusi, verifikasi checksum, & arsip artefak |
 | [`research/AI_USAGE.md`](research/AI_USAGE.md) | Tata kelola penggunaan AI generatif, matriks verifikasi, & log deklarasi |
