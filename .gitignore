@@ -31,6 +31,10 @@ research/data/raw/*
 !research/data/raw/.gitkeep
 research/ethics_archive/
 research/outputs/*/checkpoints/
+*.safetensors
+*.pt
+*.bin
+argumind_colab_outputs*/
 
 # IDE & OS
 .DS_Store

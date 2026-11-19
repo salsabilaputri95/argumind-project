@@ -1,0 +1,9 @@
+{
+  "exp_id": "E-03b",
+  "qwk_score": 0.5,
+  "spearman_rho": 0.0,
+  "partial_corr_length": 0.0,
+  "faithfulness_rate": 1.0,
+  "n_interventions": 2,
+  "latency_total_ms": 462.37
+}

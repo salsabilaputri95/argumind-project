@@ -8,7 +8,7 @@ from argumind_nlp.dag_decoder import (
     decode_minimum_spanning_dag,
     run_stage_1_structure,
 )
-from argumind_nlp.preprocessing import segment_paragraphs_and_sentences
+from argumind_nlp.preprocessing import segment_sentences
 
 from research.runners.train_indobert_bio import ID_TO_LABEL, decode_bio_spans
 from research.runners.train_nli_relations import ID_TO_REL
@@ -32,7 +32,7 @@ def _consolidate_sentence_spans(
         return raw_spans
 
     # Sentence-level BIO pooling dari distribusi logit IndoBERT
-    sentences = segment_paragraphs_and_sentences(clean_text)
+    sentences = segment_sentences(clean_text)
     pooled_spans: list[tuple[float, ComponentSpan]] = []
     label_Score_idx = {
         "Claim": (1, 2),

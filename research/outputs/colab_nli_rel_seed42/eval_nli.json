@@ -1,0 +1,11 @@
+{
+  "model_name": "indobenchmark/indobert-base-p2",
+  "seed": 42,
+  "dev_best_relation_macro_f1": 0.5,
+  "test_relation_macro_f1": {
+    "Support": 1.0,
+    "Attack": 0.0,
+    "macro_f1": 0.5
+  },
+  "checkpoint_dir": "/content/argumind-project/research/outputs/colab_nli_rel_seed42/best_nli_model"
+}

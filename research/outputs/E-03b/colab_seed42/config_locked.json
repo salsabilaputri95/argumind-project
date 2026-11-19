@@ -1,0 +1,14 @@
+{
+  "exp_id": "E-03b",
+  "arch": "M3_GraphGroundedScoring",
+  "split": "test",
+  "seed": 42,
+  "timestamp_utc": "2026-11-19T02:52:24.400329+00:00",
+  "manifest_sha256": {
+    "documents.jsonl": "c403494e02a2e868f2f61f95b2bc0db12f2e3797fd2fe2b9b9b7b448a89b2968",
+    "nodes.jsonl": "b5feb3e7e03eccfb7c15fa928ac1dc0a7a0be608cf96cbc9ba40d71590b00d0d",
+    "edges.jsonl": "ddad07112860311b6e6e7545ae3c58ba684161e41d8755866dd9bca6c64926ea",
+    "gaps.jsonl": "2f0448e5b2c2e236a7e86cc9176b4664aa9488fce022bcccf25ad7eeddc0933f",
+    "rubric_scores.jsonl": "01155dba1256d1f92954495e3229898ea081154edf2c0d44d90a6365c525d691"
+  }
+}

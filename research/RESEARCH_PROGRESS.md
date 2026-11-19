@@ -8,8 +8,8 @@ Sumber kebenaran untuk: Status kesiapan riset, jadwal eksekusi `E-01`–`E-03b`,
 - **Target Jurnal Utama:** `J-01: TACL` (MIT Press/ACL, Diamond OA `$0 APC`) | **Cadangan:** `J-02: IP&M` (Elsevier, Subscription `$0 APC`)
 
 ### Langkah Berikutnya (Maks 3 — Prioritas Sesi Berikutnya)
-1. **Jalankan Pelatihan Model di Google Colab:** Hubungkan repo `salsabilaputri95/argumind-project` dan jalankan `research/notebooks/Argumind_Colab_Training.ipynb` untuk melatih `IndoBERT` BIO (`F-01`) dan `Cross-Encoder NLI` (`F-02`).
-2. **Pengajuan *Ethical Clearance* & Kalibrasi Anotator:** Ajukan protokol etik ke Komisi Etik (KEPK/IRB) (`→ research/ETHICS.md`) dan gunakan modul `F-06` yang telah siap untuk uji kalibrasi 3 anotator hingga $\alpha_{\text{Krip}} \ge 0.75$.
+1. **Ekspansi Korpus `IndoArg-Analytical-v1` & Multi-Seed Run:** Tambah dokumen teranotasi di `research/data/processed/v1.0/` (karena 8 dokumen latih benih baru menghasilkan `NLI Support F1 = 1.0`, `NLI Macro-F1 = 0.50`, namun belum cukup untuk konvergensi BIO), lalu jalankan ulang Colab untuk seed `42`, `100`, dan `2026`.
+2. **Pengajuan *Ethical Clearance* & Kalibrasi Anotator:** Ajukan protokol etik ke Komisi Etik (KEPK/IRB) (`→ research/ETHICS.md`) dan gunakan modul `F-06` untuk uji kalibrasi 3 anotator hingga $\alpha_{\text{Krip}} \ge 0.75$.
 3. **Ekstraksi Angka PDF Literatur:** Isi nilai metrik eksak (`TODO(ekstrak ...)`) pada tabel `research/LITERATURE_REVIEW.md` dari 10 PDF ACL Anthology terverifikasi.
 
 ---

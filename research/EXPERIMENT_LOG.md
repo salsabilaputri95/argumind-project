@@ -97,6 +97,79 @@ Sumber kebenaran untuk: Jejak audit empiris seluruh percobaan yang berhasil maup
 - **Kesimpulan Sementara:**
   - «dugaan» Pipeline runner, verifikasi checksum `manifest.sha256`, pencatatan artefak keluaran, dan jaminan graf bebas siklus (`cycle_rate = 0.0`) berfungsi; evaluasi akurasi sesungguhnya wajib menunggu fine-tuning `IndoBERT` + `Cross-Encoder NLI` di Google Colab pada korpus penuh.
 
+### [LOG-20261119-02] — E-01 (Fine-Tuning IndoBERT BIO + Cross-Encoder NLI di Google Colab T4 GPU — Korpus Benih v1.0)
+- **ID Run & Status:** `colab_seed42` | Status: `NEGATIVE_RESULT` (Pipeline GPU End-to-End Lulus pada Korpus Benih 12 Dokumen; Butuh Korpus Penuh $N=400$ untuk Konvergensi BIO)
+- **Tanggal & Waktu (UTC):** `2026-11-19T02:52:23.937039+00:00`
+- **Git Commit Hash:** `1f8662b` (`main` di `/content/argumind-project`)
+- **Konfigurasi & Parameter:**
+  - `arch / mode`: `M1_ArgumindHybrid`
+  - `encoder_checkpoint`: `indobenchmark/indobert-base-p2` (BIO Sequence Labeler & Cross-Encoder NLI)
+  - `hyperparameters`: `{"bio_epochs": 10, "nli_epochs": 8, "lr": 2e-5, "batch_size": 16}`
+  - `dataset_version & split`: `IndoArg-Analytical-v1` seed sample (`manifest sha256 documents.jsonl: c403494e`) | `split: test` (`n_docs = 2`)
+- **Random Seed:** `42`
+- **Lingkungan Eksekusi (Environment):**
+  - `OS`: `Linux (Google Colab VM)`
+  - `GPU & VRAM`: `1x NVIDIA Tesla T4 15360MiB, Driver 580.82.07, CUDA 13.0`
+  - `Python & PyTorch`: `Python 3.13 | torch 2.14.1+cu130`
+- **Perintah Eksekusi (Command):**
+  `run_experiment(exp_id="E-01", arch="M1_ArgumindHybrid", data_dir=Path("research/data/processed/v1.0"), split="test", seed=42, output_dir=Path("research/outputs/E-01/colab_seed42"), bio_model_dir=Path("research/outputs/colab_indobert_bio_seed42/best_model"), nli_model_dir=Path("research/outputs/colab_nli_rel_seed42/best_nli_model"))`
+- **Hasil Mentah (Tanpa Pembulatan) & Lokasi File Output:**
+  - **File Output:**
+    - Evaluasi BIO (`F-01`): `research/outputs/colab_indobert_bio_seed42/eval_bio.json` (+ bobot lokal `best_model/model.safetensors`)
+    - Evaluasi NLI (`F-02`): `research/outputs/colab_nli_rel_seed42/eval_nli.json` (+ bobot lokal `best_nli_model/model.safetensors`)
+    - Config: `research/outputs/E-01/colab_seed42/config_locked.json`
+    - Prediksi: `research/outputs/E-01/colab_seed42/predictions.jsonl`
+    - Metrik Mentah: `research/outputs/E-01/colab_seed42/metrics_raw.json`
+    - Log Proses: `research/outputs/E-01/colab_seed42/run.log`
+  - **Angka Asli (`eval_bio.json`, `eval_nli.json`, & `metrics_raw.json`):**
+    - `nli_dev_best_relation_macro_f1`: `0.5`
+    - `nli_test_relation_support_f1`: `1.0`
+    - `nli_test_relation_attack_f1`: `0.0`
+    - `nli_test_relation_macro_f1`: `0.5`
+    - `bio_dev_best_macro_f1_iou50`: `0.0`
+    - `component_macro_f1_exact`: `0.0`
+    - `component_macro_f1_iou50`: `0.0`
+    - `relation_macro_f1`: `0.0`
+    - `cycle_rate`: `0.0`
+    - `n_docs`: `2`
+    - `latency_total_ms`: `2334.9`
+- **Anomali / Error yang Ditemukan:**
+  - Pada evaluasi terisolasi pasangan *gold* (`eval_nli.json`), Cross-Encoder NLI + Chu-Liu/Edmonds DAG mencapai `Support F1 = 1.0` dan `macro_f1 = 0.5`. Namun pada evaluasi *end-to-end* (`E-01`), karena partisi `train` korpus benih hanya berisi 8 dokumen (`1` batch per epoch = total `10` langkah gradien), lapisan klasifikasi token `IndoBERT BIO` belum konvergen (`bio_dev_best_macro_f1_iou50 = 0.0`) sehingga batas karakter span belum cocok dengan offset *gold*.
+- **Kesimpulan Sementara:**
+  - «dugaan» Seluruh pipeline pelatihan GPU di Google Colab, penyimpanan bobot `.safetensors`, dekode DAG Chu-Liu/Edmonds (`cycle_rate = 0.0`), dan inferensi ter-batch (`latency_total_ms = 2334.9` untuk 2 dokumen) telah terverifikasi berfungsi; konvergensi model BIO membutuhkan penambahan ukuran partisi `train` menuju target korpus penuh ($n_{\text{train}} = 280$).
+
+### [LOG-20261119-03] — E-03b (Evaluasi Graph-Grounded Scoring, Faithfulness, & Length Bias di Google Colab T4 GPU)
+- **ID Run & Status:** `colab_seed42` | Status: `COMPLETED`
+- **Tanggal & Waktu (UTC):** `2026-11-19T02:52:24.400329+00:00`
+- **Git Commit Hash:** `1f8662b` (`main` di `/content/argumind-project`)
+- **Konfigurasi & Parameter:**
+  - `arch / mode`: `M3_GraphGroundedScoring`
+  - `dataset_version & split`: `IndoArg-Analytical-v1` seed sample (`manifest sha256 documents.jsonl: c403494e`) | `split: test` (`n_docs = 2`, `n_interventions = 2`)
+- **Random Seed:** `42`
+- **Lingkungan Eksekusi (Environment):**
+  - `OS`: `Linux (Google Colab VM)`
+  - `GPU & VRAM`: `1x NVIDIA Tesla T4 15360MiB, CUDA 13.0`
+  - `Python & PyTorch`: `Python 3.13 | torch 2.14.1+cu130`
+- **Perintah Eksekusi (Command):**
+  `run_experiment(exp_id="E-03b", arch="M3_GraphGroundedScoring", data_dir=Path("research/data/processed/v1.0"), split="test", seed=42, output_dir=Path("research/outputs/E-03b/colab_seed42"))`
+- **Hasil Mentah (Tanpa Pembulatan) & Lokasi File Output:**
+  - **File Output:**
+    - Config: `research/outputs/E-03b/colab_seed42/config_locked.json`
+    - Prediksi: `research/outputs/E-03b/colab_seed42/predictions.jsonl`
+    - Metrik Mentah: `research/outputs/E-03b/colab_seed42/metrics_raw.json`
+    - Log Proses: `research/outputs/E-03b/colab_seed42/run.log`
+  - **Angka Asli (`metrics_raw.json`):**
+    - `qwk_score`: `0.5`
+    - `spearman_rho`: `0.0`
+    - `partial_corr_length`: `0.0`
+    - `faithfulness_rate`: `1.0`
+    - `n_interventions`: `2`
+    - `latency_total_ms`: `462.37`
+- **Anomali / Error yang Ditemukan:**
+  - Tidak ada error eksekusi. `spearman_rho = 0.0` terjadi karena kedua dokumen pada partisi `test` korpus benih memiliki rata-rata skor prediksi yang bernilai konstan (*tied ranks* pada $n=2$).
+- **Kesimpulan Sementara:**
+  - «dugaan» Mekanisme *counterfactual ablation* pada `M3_GraphGroundedScoring` berhasil menurunkan skor dimensi secara konsisten dan memperbarui `grounded_refs` saat node bukti dihapus (`faithfulness_rate = 1.0`, `partial_corr_length = 0.0`).
+
 ---
 
 ## 3. Pertanyaan Terbuka

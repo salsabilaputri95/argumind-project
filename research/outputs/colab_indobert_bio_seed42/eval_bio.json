@@ -1,0 +1,12 @@
+{
+  "model_name": "indobenchmark/indobert-base-p2",
+  "seed": 42,
+  "dev_best_macro_f1_iou50": 0.0,
+  "test_macro_f1_iou50": {
+    "Claim": 0.0,
+    "ExplicitPremise": 0.0,
+    "Evidence": 0.0,
+    "macro_f1": 0.0
+  },
+  "checkpoint_dir": "/content/argumind-project/research/outputs/colab_indobert_bio_seed42/best_model"
+}

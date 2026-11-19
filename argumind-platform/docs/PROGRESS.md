@@ -4,13 +4,13 @@ Sumber kebenaran untuk: Titik mulai sesi pengembangan baru (`argumind-platform/`
 
 # Pelacak Progres Pengembangan (PROGRESS.md): Argumind Platform
 
-- **Tanggal Pembaruan Terakhir:** `2026-11-18`
+- **Tanggal Pembaruan Terakhir:** `2026-11-19`
 - **Fase Aktif Saat Ini:** **Fase 2 — Inti Penalaran Implisit, Rubrik Terjelaskan, & Kontraargumen (Minggu 4–6)**
 
 ### Langkah Berikutnya (Maks 3 — Mulai dari Sini pada Sesi Baru)
-1. **Verifikasi Build Frontend (`C-WEB`):** Pastikan `corepack pnpm --filter web typecheck && corepack pnpm --filter web lint && corepack pnpm --filter web build` lulus setelah `pnpm install --config.node-linker=hoisted` selesai, lalu jalankan E2E Playwright (`375px`, `768px`, `1440px`).
-2. **Integrasi LLM & Penyelesaian Penuh `F-03`–`F-05`:** Hubungkan endpoint `EXT-LLM` (*zero data retention*) pada `apps/nlp-worker/src/argumind_nlp/reasoning.py` untuk rekonstruksi `ImplicitPremise`, `ReasoningGap`, skor rubrik, dan `Counterargument` serta validasi `grounded_refs` dengan retry otomatis.
-3. **Pelatihan Model IndoBERT & NLI di Google Colab:** Hubungkan repo GitHub `salsabilaputri95/argumind-project` di Google Colab dan jalankan `research/notebooks/Argumind_Colab_Training.ipynb`.
+1. **Integrasi Checkpoint IndoBERT/NLI & Penyelesaian `F-03`–`F-05`:** Hubungkan bobot hasil fine-tuning Colab (`research/outputs/colab_*/best_*`) serta endpoint `EXT-LLM` (*zero data retention*) pada `apps/nlp-worker/src/argumind_nlp/reasoning.py` untuk rekonstruksi `ImplicitPremise`, `ReasoningGap`, skor rubrik, dan `Counterargument`.
+2. **Verifikasi Build Frontend (`C-WEB`):** Jalankan `npm install --no-bin-links` di dalam `argumind-platform/apps/web`, pastikan `typecheck`, `lint`, dan `build` lulus, lalu uji E2E Playwright (`375px`, `768px`, `1440px`).
+3. **Ekspansi Korpus Latih (`IndoArg-Analytical-v1`):** Gunakan ruang kerja anotasi `F-06` untuk memperbesar partisi `train` dari 8 dokumen benih menuju target korpus penuh ($N=400$) agar model BIO mencapai konvergensi optimal.
 
 ---
 
@@ -51,7 +51,8 @@ Format: `- [ ] ID deskripsi | pemilik | status` (`todo`, `doing`, `done`, `block
 
 ## 3. Log Aktivitas Terakhir (Maks 10 Entri — Selebihnya Pindah ke `docs/PROGRESS_ARCHIVE.md`)
 
-1. `2026-11-18` — Menyelesaikan implementasi Fase 1 (`INFRA-01`, `AUTH-01`, `F-01`, `F-02`, `F-06`), 17/17 tes Python lulus (92% cov), Ruff 0 error, serta notebook Colab pelatihan IndoBERT/NLI.
+1. `2026-11-19` — Menyelesaikan fine-tuning GPU T4 Google Colab (`IndoBERT BIO` + `Cross-Encoder NLI`), evaluasi `E-01` & `E-03b` (`seed 42`), merapikan `research/outputs/`, dan mencatat `[LOG-20261119-02]` & `[LOG-20261119-03]`.
+2. `2026-11-18` — Menyelesaikan implementasi Fase 1 (`INFRA-01`, `AUTH-01`, `F-01`, `F-02`, `F-06`), 17/17 tes Python lulus (92% cov), Ruff 0 error, serta notebook Colab pelatihan IndoBERT/NLI.
 2. `2026-11-18` — Menyelesaikan `AGENTS.md`, `docs/PROGRESS.md`, dan `research/RESEARCH_PROGRESS.md`.
 3. `2026-11-18` — Menyelesaikan `docs/CODE_STYLE.md`, `docs/TESTING.md`, dan `docs/GIT_WORKFLOW.md`.
 4. `2026-11-18` — Menyelesaikan `docs/PAGES_AND_FLOWS.md`, `docs/DESIGN_SYSTEM.md` (+ `color-palette-preview.html`), dan `docs/DECISIONS.md` (`ADR-01`–`ADR-06`).
