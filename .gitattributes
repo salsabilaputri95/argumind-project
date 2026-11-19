@@ -8,3 +8,7 @@
 *.tsx linguist-detectable=true
 *.sql linguist-detectable=true
 *.css linguist-detectable=true
+
+# Enforce LF line endings on corpus data and SHA-256 manifests across Windows & Linux/Colab
+*.jsonl text eol=lf
+*.sha256 text eol=lf

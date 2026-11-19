@@ -59,8 +59,18 @@ def _run_e01(
                     pred_spans.append(ComponentSpan(doc_id, n.start_char, n.end_char, n.node_type))
                 g.add_node(n.node_key)
             for e in edges:
+                src_k = (
+                    e.source_key
+                    if e.source_key.startswith(f"{doc_id}_")
+                    else f"{doc_id}_{e.source_key}"
+                )
+                tgt_k = (
+                    e.target_key
+                    if e.target_key.startswith(f"{doc_id}_")
+                    else f"{doc_id}_{e.target_key}"
+                )
                 pred_rels.append(
-                    RelationTriple(doc_id, e.source_key, e.target_key, e.relation_type)
+                    RelationTriple(doc_id, src_k, tgt_k, e.relation_type)
                 )
                 if e.relation_type == "Support":
                     g.add_edge(e.source_key, e.target_key)

@@ -52,7 +52,7 @@ def predict_with_hf_models(
         )
         extracted = [
             ExtractedNode(
-                f"N-{i + 1:02d}",
+                f"{doc_id}_N-{i + 1:02d}",
                 sp.label,
                 sp.start_char,
                 sp.end_char,

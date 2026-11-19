@@ -178,11 +178,15 @@ def write_seed_corpus(target_dir: Path) -> None:
     manifest_lines: list[str] = []
     for fname, rows in files.items():
         fpath = target_dir / fname
-        content = "\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n"
-        fpath.write_text(content, encoding="utf-8")
-        digest = hashlib.sha256(fpath.read_bytes()).hexdigest()
+        content_bytes = ("\n".join(json.dumps(r, ensure_ascii=False) for r in rows) + "\n").encode(
+            "utf-8"
+        )
+        fpath.write_bytes(content_bytes)
+        digest = hashlib.sha256(content_bytes).hexdigest()
         manifest_lines.append(f"{digest}  {fname}")
-    (target_dir / "manifest.sha256").write_text("\n".join(manifest_lines) + "\n", encoding="utf-8")
+    (target_dir / "manifest.sha256").write_bytes(
+        ("\n".join(manifest_lines) + "\n").encode("utf-8")
+    )
 
 
 if __name__ == "__main__":

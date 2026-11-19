@@ -44,12 +44,14 @@ def verify_manifest_sha256(data_dir: Path) -> dict[str, str]:
         target = data_dir / filename
         if not target.exists():
             raise FileNotFoundError(f"File korpus hilang: {target}")
-        actual = hashlib.sha256(target.read_bytes()).hexdigest()
-        if actual != expected_hash:
+        raw_bytes = target.read_bytes()
+        actual_raw = hashlib.sha256(raw_bytes).hexdigest()
+        actual_lf = hashlib.sha256(raw_bytes.replace(b"\r\n", b"\n")).hexdigest()
+        if expected_hash not in {actual_raw, actual_lf}:
             raise RuntimeError(
-                f"Checksum mismatch pada {filename}: expected {expected_hash}, got {actual}"
+                f"Checksum mismatch pada {filename}: expected {expected_hash}, got {actual_lf}"
             )
-        hashes[filename] = actual
+        hashes[filename] = expected_hash
     return hashes
 
 
